@@ -140,7 +140,7 @@ export class DataService {
     },
   ];
   public cityScore: CityScore | null = {
-    city: 'Bengaluru',
+    city: 'Springfield',
     total_score: 87,
     facilities: {
       hospitals: 5,
