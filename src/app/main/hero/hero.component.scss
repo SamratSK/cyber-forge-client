@@ -22,10 +22,43 @@
   }
 }
 
-.cont2 {
-  background-color: #a359ed;
+.cont3 {
   padding: 3rem 0;
-  color: white;
+  height: 40vh;
+  font-size: 110%;
+
+  .container {
+    gap: 2rem;
+  }
+
+  .left {
+    button {
+      margin-top: 3rem;
+      align-self: flex-start;
+    }
+  }
+}
+
+.cont4 {
+  padding: 3rem 0;
+  font-size: 110%;
+  background-color: #ebd7ff;
+
+  .container {
+    gap: 2rem;
+  }
+
+  .left {
+    button {
+      margin-top: 3rem;
+      align-self: flex-start;
+    }
+  }
+}
+
+.cont2 {
+  background-color: #ebd7ff;
+  padding: 3rem 0;
 }
 
 .sos {

@@ -117,9 +117,52 @@
   </div>
 </div>
 
-<div class="cont3 flx flx--v">
-  <div class="container">
-    
+@if(score) {
+
+<!-- <div class="cont3 flx flx--v">
+  <div class="container flx flx--1">
+    <div
+      class="map flx--1"
+      leaflet
+      [leafletOptions]="options"
+      [leafletLayers]="layers"
+      (leafletMapReady)="onMapReady($event)"
+    ></div>
+    <div class="right flx--1 flx flx--v">
+      <h2>{{ score.city }}</h2>
+      <p class="score">City Score: {{ score.city_score }}</p>
+
+      <p class="desc">
+        Your city has {{ score.facilities_count }} facilities including police
+        stations, hospitals and fire stations.
+      </p>
+
+      <p class="weakest">
+        The area with weakest coverage is
+        {{ score.weakest_sector.weakest_sector_name }} with
+        {{ score.weakest_sector.facility_count }} facilities which include:
+        {{ weakFacilities }}.
+      </p>
+    </div>
+  </div>
+</div> -->
+}
+
+<div class="cont4 flx flx--v">
+  <div class="container flx">
+    <div class="flx--1"></div>
+    <div class="left flx--1">
+      <h1>Prepare for disasters</h1>
+      <p>
+        Disaster strikes when least expected! Don't take them lightly. Prepare
+        for them now! View out video lectures with AI transcription and
+        translation
+      </p>
+
+      <button class="btn" (click)="select(OPTS.Edu)">
+        Emergency Education
+      </button>
+    </div>
   </div>
 </div>
 

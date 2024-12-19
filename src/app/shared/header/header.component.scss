@@ -6,6 +6,7 @@
 :host {
   background-color: headerVars.$headerBg;
   height: headerVars.$headerHeight;
+  min-height: headerVars.$headerHeight;
 
   border-bottom: 0.18rem solid var(--clr-highlight);
 }
