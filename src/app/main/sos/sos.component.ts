@@ -1,7 +1,6 @@
 import { Location } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { DisasterService } from '../../services/disaster.service';
-import { LocationService } from '../../services/location.service';
+import { LocationService } from '@services/location.service';
 
 @Component({
   selector: 'ng-sos',
@@ -17,18 +16,17 @@ export class SosComponent implements AfterViewInit {
   constructor(
     private location: Location,
     private loc: LocationService,
-    private disaster: DisasterService
   ) {}
 
   async ngAfterViewInit() {
     const position = this.loc.getCurrent();
-    const [success, res] = await this.disaster.sos({
-      location: position,
-      userId: null,
-    });
+    // const [success, res] = await this.disaster.sos({
+    //   location: position,
+    //   userId: null,
+    // });
 
-    this.sosStatus = success ? 'sent' : 'error';
-    this.message = res;
+    // this.sosStatus = success ? 'sent' : 'error';
+    // this.message = res;
   }
 
   goBack() {

@@ -1,0 +1,8 @@
+@use "../header/header-vars" as headerVars;
+
+:host {
+  background: headerVars.$headerBg;
+  padding: 1rem;
+  text-align: center;
+  border-top: 0.08rem solid var(--clr-highlight);
+}

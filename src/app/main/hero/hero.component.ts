@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, ElementRef, HostBinding, ViewChild } from '@angular/core';
 import { icons } from '@utils/icons.utils';
 
 @Component({
@@ -10,6 +10,20 @@ import { icons } from '@utils/icons.utils';
 })
 export class HeroComponent {
   @HostBinding('class') className = 'component flx--1';
+  dialogOpened = false;
+
+
+  @ViewChild('dialog') dialog!: ElementRef<HTMLDialogElement>;
+
+  OPTS = {
+    Contact: 'Contact',
+    Reports: 'Reports',
+    FirstAid: 'First Aid',
+    Shelter: 'Shelter',
+    Resources: 'Resources',
+}
+
+  selected = this.OPTS.Contact
 
   buttonIcons = {
     shelter: icons.shelter,
@@ -17,5 +31,10 @@ export class HeroComponent {
     hospitals: icons.hospitals,
     contact: icons.contact,
     reports: icons.reports
+  }
+
+  select(value: string) {
+    this.selected = value;
+    this.dialog.nativeElement.showModal();
   }
 }

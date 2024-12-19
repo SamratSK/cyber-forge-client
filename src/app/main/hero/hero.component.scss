@@ -1,5 +1,6 @@
 @use "sass:list";
 @use "sass:color";
+@use "../../../assets/styles/vars" as vars;
 
 .sos {
   align-self: center;
@@ -124,7 +125,7 @@
     $btn-colors: #592f2f, #125a62, #7a3766, #25445a, #677e6b, #443858;
 
     @for $i from 1 through list.length($btn-colors) {
-      $col: nth($btn-colors, $i);
+      $col: list.nth($btn-colors, $i);
 
       &:nth-child(#{$i}) {
         --clr-bg: #{$col};
@@ -196,5 +197,81 @@
 
   .cls-4 {
     fill: #005ed0;
+  }
+}
+
+dialog {
+  border: none;
+  border-radius: 0.25rem;
+
+  padding: 0;
+
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  background-color: var(--clr-dialog-highlight);
+
+  border: 0.3rem solid var(--clr-dialog-highlight);
+
+  box-shadow: 7px 6px 16px 2px rgba(0, 0, 0, 0.3);
+
+  &[open] {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  header {
+    padding: 0.5rem 0.75rem 0.5rem 1rem;
+    span {
+      color: rgba(255, 255, 255, .7);
+      font-size: 115%;
+    }
+  }
+
+
+  .content {
+    border-top: 0;
+    border-bottom: 0;
+    background-color: white;
+
+    padding: 1rem;
+
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .btn--close {
+    $sz: 2rem;
+
+    --clr-header-hov: rgba(255,255,255,0.1);
+
+    width: $sz;
+    height: $sz;
+
+    padding: 0.25rem;
+    justify-self: end;
+
+    border-radius: 50%;
+
+    &:hover {
+      svg {
+        fill: rgba(255, 255, 255, .9);
+      }
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+
+      transition: fill vars.$durShort;
+
+      fill: rgba(255, 255, 255, .5);
+    }
+  }
+
+  .footer {
+    height: 40px;
+    border-top: 4px solid #db7a14;
+    background-color: #fff;
   }
 }

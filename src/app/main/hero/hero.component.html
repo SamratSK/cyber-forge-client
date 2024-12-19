@@ -52,7 +52,7 @@
   </div>
   <div class="buttons">
     <div class="circular">
-      <button class="btn--circular">
+      <button class="btn--circular" (click)="select(OPTS.Shelter)">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon"
@@ -61,7 +61,7 @@
       </button>
       <div class="name">Shelters</div>
     </div>
-    <div class="circular">
+    <div class="circular" (click)="select(OPTS.Resources)">
       <button class="btn--circular">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +71,7 @@
       </button>
       <div class="name">Resources</div>
     </div>
-    <div class="circular hospitals">
+    <div class="circular hospitals" (click)="select(OPTS.FirstAid)">
       <button class="btn--circular">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -79,9 +79,9 @@
           [ngFromSvgData]="buttonIcons.hospitals"
         ></svg>
       </button>
-      <div class="name">Hospitals</div>
+      <div class="name">First Aid</div>
     </div>
-    <div class="circular reports">
+    <div class="circular reports" (click)="select(OPTS.Reports)">
       <button class="btn--circular">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +92,7 @@
       <div class="name">Reports</div>
     </div>
     <div class="circular">
-      <button class="btn--circular">
+      <button class="btn--circular" (click)="select(OPTS.Contact)">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon"
@@ -103,3 +103,30 @@
     </div>
   </div>
 </div>
+
+<dialog class="container flx flx--v" #dialog>
+  @if(dialog.open) {
+  <header class="flx flx--ac">
+    <span>{{ selected }}</span>
+    <div class="flx--1"></div>
+    <button
+      class="btn btn--close btn--header flx flx--c"
+      (click)="dialog.close()"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+        <path
+          d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+        />
+      </svg>
+    </button>
+  </header>
+  <div class="content">
+    @if(selected === OPTS.Shelter) { <ng-shelters></ng-shelters>} @else if
+    (selected === OPTS.Contact) {<ng-contact></ng-contact>} @else if (selected
+    === OPTS.FirstAid) {<ng-first-aid></ng-first-aid>} @else if (selected ===
+    OPTS.Resources) { <ng-resources></ng-resources>} @else if (selected ===
+    OPTS.Reports) {<ng-reports></ng-reports> }
+  </div>
+  <div class="footer"></div>
+  }
+</dialog>

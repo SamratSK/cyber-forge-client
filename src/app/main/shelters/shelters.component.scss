@@ -1,0 +1,13 @@
+
+:host {
+  display: flex;
+  flex: 1;
+
+  min-height: 60vh;
+}
+
+div {
+  flex: 1;
+  min-height: 60vh;
+  height: 100%;
+}
