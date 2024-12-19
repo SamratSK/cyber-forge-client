@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $clr-bg: rgb(168, 28, 28);
 $clr-fg: #fff;
 
@@ -81,7 +83,7 @@ header {
   background-color: $clr-bg;
 
   &:hover {
-    background-color: darken($clr-bg, 10%);
+    background-color: color.scale($clr-bg, $lightness: -10%);
   }
 
   svg {

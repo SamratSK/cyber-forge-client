@@ -1,1 +1,16 @@
-<p>reports works!</p>
+<div
+  class="flx--1"
+  leaflet
+  [leafletOptions]="options"
+  [leafletLayers]="layers"
+  (leafletMapReady)="onMapReady($event)"
+></div>
+<div class="items flx--1 flx flx--v">
+  @for (item of disasters; track $index) {
+  <div class="item flx flx--v">
+    <h3>{{ item.name }} - {{item.disaster_type}}</h3>
+    <p>{{item.severity || item.magnitude || item.intensity}}</p>
+    <div class="msg">{{item.description}}</div>
+  </div>
+  }
+</div>

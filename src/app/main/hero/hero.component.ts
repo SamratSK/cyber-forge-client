@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostBinding, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { icons } from '@utils/icons.utils';
 
 @Component({
@@ -15,12 +16,15 @@ export class HeroComponent {
 
   @ViewChild('dialog') dialog!: ElementRef<HTMLDialogElement>;
 
+  constructor(private router: Router) {}
+
   OPTS = {
     Contact: 'Contact',
     Reports: 'Reports',
     FirstAid: 'First Aid',
     Shelter: 'Shelter',
     Resources: 'Resources',
+    Edu: 'Emergency Education',
 }
 
   selected = this.OPTS.Contact
@@ -36,5 +40,9 @@ export class HeroComponent {
   select(value: string) {
     this.selected = value;
     this.dialog.nativeElement.showModal();
+  }
+
+  sos() {
+    this.router.navigate(['/sos']);
   }
 }

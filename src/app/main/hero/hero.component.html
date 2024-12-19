@@ -1,5 +1,15 @@
-<div class="container flx flx--v">
-  <div class="sos">
+<div class="cont1 container flx--ac">
+  <div class="left flx flx--v flx--1">
+    <h1>Stay STRONG!</h1>
+    <p>
+      Don't panic! Help will arrive. Click on SOS to notify authorities of
+      danger. Go to first aid section for instructions on how to perform first
+      aid.
+    </p>
+    <div class="flx-1"></div>
+    <button class="btn" (click)="select(OPTS.FirstAid)">First Aid</button>
+  </div>
+  <div class="sos flx--1">
     <img class="spiral" src="images/spiral.svg" alt="" />
 
     <svg
@@ -36,7 +46,7 @@
         height="144.8"
         style="overflow: visible"
       >
-        <div class="clickable"></div>
+        <div class="clickable" (click)="sos()"></div>
       </foreignObject>
       <g id="sos" style="pointer-events: none">
         <path
@@ -50,9 +60,12 @@
       </g>
     </svg>
   </div>
-  <div class="buttons">
+</div>
+
+<div class="cont2 flx flx--v">
+  <div class="container buttons flx">
     <div class="circular">
-      <button class="btn--circular" (click)="select(OPTS.Shelter)">
+      <button class="btn--circular" (click)="select(OPTS.Edu)">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon"
@@ -104,6 +117,12 @@
   </div>
 </div>
 
+<div class="cont3 flx flx--v">
+  <div class="container">
+    
+  </div>
+</div>
+
 <dialog class="container flx flx--v" #dialog>
   @if(dialog.open) {
   <header class="flx flx--ac">
@@ -125,7 +144,8 @@
     (selected === OPTS.Contact) {<ng-contact></ng-contact>} @else if (selected
     === OPTS.FirstAid) {<ng-first-aid></ng-first-aid>} @else if (selected ===
     OPTS.Resources) { <ng-resources></ng-resources>} @else if (selected ===
-    OPTS.Reports) {<ng-reports></ng-reports> }
+    OPTS.Reports) {<ng-reports></ng-reports> } @else if (selected === OPTS.Edu)
+    {<ng-educational></ng-educational> }
   </div>
   <div class="footer"></div>
   }

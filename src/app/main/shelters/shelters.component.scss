@@ -1,13 +1,25 @@
-
 :host {
+  height: 60vh;
   display: flex;
-  flex: 1;
-
-  min-height: 60vh;
+  gap: 1rem;
 }
 
-div {
-  flex: 1;
-  min-height: 60vh;
-  height: 100%;
+.items {
+  gap: 0.75rem;
+}
+
+.item {
+  background-color: rgb(230, 230, 230);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.25rem;
+
+  p {
+    margin: 0;
+    margin-top: 0.2rem;
+    size: 90%;
+  }
+
+  .msg {
+    margin-top: 0.75rem;
+  }
 }

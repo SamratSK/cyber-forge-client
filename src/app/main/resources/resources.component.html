@@ -1,3 +1,6 @@
-<div class="item">
-  <h3>{{}}</h3>
+@for (item of data; track $index) {
+<div class="item flx flx--v">
+  <h3>{{item.type}}</h3>
+  <div class="msg">{{item.msg}}</div>
 </div>
+}

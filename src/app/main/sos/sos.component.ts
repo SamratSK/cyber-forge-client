@@ -25,8 +25,12 @@ export class SosComponent implements AfterViewInit {
     //   userId: null,
     // });
 
+    setTimeout(() => {
+      this.sosStatus = 'sent';
+      this.message = 'Sent SOS successfully!';
+
+    }, 2000);
     // this.sosStatus = success ? 'sent' : 'error';
-    // this.message = res;
   }
 
   goBack() {

@@ -10,9 +10,10 @@ import { ContactComponent } from './contact/contact.component';
 
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { ReportsComponent } from './reports/reports.component';
+import { EducationalComponent } from './educational/educational.component';
 
 @NgModule({
-  declarations: [HeroComponent, FirstAidComponent, ResourcesComponent, SheltersComponent, ContactComponent, ReportsComponent],
+  declarations: [HeroComponent, FirstAidComponent, ResourcesComponent, SheltersComponent, ContactComponent, ReportsComponent, EducationalComponent],
   imports: [
     CommonModule,
     MainRoutingModule,

@@ -1,7 +1,15 @@
 <div
+  class="flx--1"
   leaflet
   [leafletOptions]="options"
   [leafletLayers]="layers"
   (leafletMapReady)="onMapReady($event)"
-  style="height: 100%; width: 100%;"
 ></div>
+<div class="items flx--1 flx flx--v">
+  @for (item of shelters; track $index) {
+  <div class="item flx flx--v">
+    <h3>{{ item.name }}</h3>
+    <p>Capacity: {{item.capacity}}</p>
+  </div>
+  }
+</div>

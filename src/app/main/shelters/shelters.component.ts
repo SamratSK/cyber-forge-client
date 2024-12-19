@@ -11,6 +11,12 @@ import * as L from 'leaflet';
   styleUrl: './shelters.component.scss',
 })
 export class SheltersComponent {
+  shelters: {
+    name: string;
+    latitude: number;
+    longitude: number;
+    capacity: string;
+  }[] = [];
   map: L.Map | undefined;
   options = {
     layers: [
@@ -26,6 +32,8 @@ export class SheltersComponent {
 
   constructor(dataService: DataService, locService: LocationService) {
     const shelters = dataService.nearbyShelters;
+
+    this.shelters = shelters;
 
     if (!shelters) return;
 
