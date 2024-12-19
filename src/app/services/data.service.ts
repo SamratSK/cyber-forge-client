@@ -73,7 +73,7 @@ interface VideoTranscriptionResponse {
   providedIn: 'root',
 })
 export class DataService {
-  private BASE_URL = 'http://your-backend-url.com';
+  private BASE_URL = 'http://127.0.0.1:5000';
 
   // Global variables to store data
   public nearbyShelters: Shelter[] = [
@@ -140,7 +140,7 @@ export class DataService {
     },
   ];
   public cityScore: CityScore | null = {
-    city: 'Springfield',
+    city: 'Bengaluru',
     total_score: 87,
     facilities: {
       hospitals: 5,
@@ -291,12 +291,13 @@ export class DataService {
     longitude: number,
     location: string
   ): Promise<void> {
-    // await Promise.all([
-    //   this._getNearbyShelters(latitude, longitude),
-    //   this._getFirstAidKit(location),
-    //   this._getNearbyHospitals(latitude, longitude),
-    //   this._getUpdates(),
-    //   this._getDisasters(),
-    // ]);
+    await Promise.all([
+      this._getNearbyShelters(latitude, longitude),
+      this._getFirstAidKit(location),
+      // // this._getNearbyHospitals(latitude, longitude),
+      this._getUpdates(),
+      // this._getDisasters(),
+      this._getCityScore(location)
+    ]);
   }
 }
