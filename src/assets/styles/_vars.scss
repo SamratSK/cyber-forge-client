@@ -1,0 +1,19 @@
+$borderRadDefault: 0.25rem;
+
+$durDefault: 0.22s;
+$durShort: 0.14s;
+
+$disabled-base-map: (
+  cursor: not-allowed,
+);
+
+@mixin disabled-base {
+  @each $property, $value in $disabled-base-map {
+    #{$property}: $value;
+  }
+}
+
+$z-header-footer: 1;
+$z-backdrop: 2;
+$z-sidemenu: 3;
+$z-dialog: 4;

@@ -1,0 +1,72 @@
+@use "sass:color";
+
+@mixin css-light {
+  $clr-action: #ffcf59;
+  $clr-highlight: hsl(268deg 54.95% 47.46%);
+
+  $clr-bg: rgb(245, 245, 245);
+  $clr-fg: hsl(0, 0%, 30%);
+  $clr-heading: #041023;
+
+  --clr-bg: #{$clr-bg};
+  --clr-fg: #{$clr-fg};
+  --clr-heading: #525252;
+
+  --clr-focus-outline: rgba(107, 0, 230, 0.5);
+  --clr-focus-bdr: hsl(268, 100%, 45%);
+
+  --clr-highlight: #{$clr-highlight};
+  --clr-highlight-fg: #fff;
+  --clr-highlight-hov: hsl(268, 100%, 62%);
+
+  --clr-header: transparent;
+  --clr-header-fg: rgb(81.585, 81.585, 81.585);
+  --clr-header-hov: #{color.scale($clr-bg, $lightness: -2%)};
+  --clr-header-hov-fg: #{$clr-heading};
+
+  --clr-input: #fff;
+  --clr-input-fg: rgb(81.585, 81.585, 81.585);
+  --clr-input-placeholder-fg: hsl(0 0% 67% / 1);
+  --input-bdr: 0.094rem solid hsl(0 0% 67% / 1);
+  --clr-input-disabled-bdr: hsl(0 0% 85% / 1);
+
+  --clr-error: rgb(212, 44, 44);
+
+  --clr-card: #fff;
+
+  // --clr-action: #{$clr-action};
+  // --clr-action-transparent: rgba(249, 217, 138, 0.7);
+  // --clr-action-fg: #1f1e1b;
+  // --clr-action-hov-bg: #{color.scale($clr-action, $lightness: 10%)};
+
+  // --clr-link: transparent;
+  // --clr-link-transparent: rgba(162, 168, 240, 0.7);
+  // --clr-link-fg: #041023;
+  // --clr-link-hov-bg: rgb(192, 216, 255, 0.7);
+
+  // --clr-menu: transparent;
+  // --clr-menu-fg: #{color.scale(#1a1a1a, $lightness: 25%)};
+  // --clr-menu-hov-bg: rgb(192, 216, 255, 0.7);
+  // --clr-menu-hov-fg: #{color.scale(#1a1a1a, $lightness: 5%)};
+
+  // --btn-disabled-filter-brightness: 0.65;
+
+  // --clr-input: #dfdfdf;
+  // --clr-input-fg: #1a1a1a;
+  // --input-disabled-filter-brightness: 0.5;
+
+  // --link-disabled-filter-brightness: 0.5;
+
+  // --clr-card-bg: #ffffff;
+  // --clr-card-fg: #{color.scale(#1a1a1a, $lightness: 25%)};
+  // --clr-card-heading: #041023;
+  // --clr-card-shadow: #{color.scale($clr-bg, $lightness: -10%)};
+  // --clr-card-shadow-hov: #{color.scale($clr-bg, $lightness: -30%)};
+}
+
+:root {
+  @include css-light();
+
+  color: var(--clr-fg);
+  background-color: var(--clr-bg);
+}

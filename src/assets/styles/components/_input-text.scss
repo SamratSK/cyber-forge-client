@@ -1,0 +1,40 @@
+@use "../vars" as vars;
+
+input[type="text"].input,
+input[type="date"].input,
+input[type="email"].input,
+input[type="month"].input,
+input[type="url"].input,
+input[type="tel"].input,
+input[type="password"].input,
+input[type="number"].input,
+select.input,
+textarea.input {
+  $clr-bg: var(--clr-input);
+  $clr-fg: var(--clr-input-fg);
+
+  color: $clr-fg;
+  background-color: $clr-bg;
+
+  border: var(--input-bdr);
+  border-radius: vars.$borderRadDefault;
+
+  padding: 0.5rem 0.75rem;
+
+  font-family: inherit;
+  font-size: 1rem;
+
+  &:disabled {
+    border-color: var(--clr-input-disabled-bdr);
+    opacity: 0.8;
+  }
+
+  &::placeholder {
+    color: var(--clr-input-placeholder-fg);
+    opacity: 1; /* Firefox */
+  }
+
+  &:-internal-autofill-selected {
+    background-color: rebeccapurple !important;
+  }
+}

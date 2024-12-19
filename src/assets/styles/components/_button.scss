@@ -1,0 +1,151 @@
+@use "../vars" as vars;
+@use "sass:map";
+@use "sass:list";
+
+@mixin button-base($default: (), $hover: (), $disabled: (), $transitions: ()) {
+  cursor: pointer;
+
+  border: 0;
+  border-radius: vars.$borderRadDefault;
+
+  padding: 0.75rem 1.95rem;
+
+  font-family: inherit;
+  font-size: 1rem;
+
+  @each $property, $value in $default {
+    #{$property}: $value;
+  }
+
+  @if (list.length($transitions) > 0) {
+    $transition-list: "";
+
+    @each $property, $value in $transitions {
+      $transition-list: $transition-list +
+        if($transition-list == "", "", ", ") +
+        "#{$property} #{$value}";
+    }
+
+    transition: #{$transition-list};
+  }
+
+  &:not(:disabled):hover {
+    @each $property, $value in $hover {
+      #{$property}: $value;
+    }
+  }
+
+  &:disabled {
+    @each $property, $value in $disabled {
+      #{$property}: $value;
+    }
+  }
+}
+
+.btn {
+  // $disabled: map.merge(
+  //   vars.$disabled-base,
+  //   ()
+  // );
+
+  $transitions: (
+    color: vars.$durDefault ease,
+    background-color: vars.$durDefault,
+  );
+
+  @include button-base(
+    (
+      background-color: var(--clr-highlight),
+      color: var(--clr-highlight-fg),
+    ),
+    (
+      background-color: var(--clr-highlight-hov),
+    ),
+    vars.$disabled-base-map,
+    $transitions
+  );
+
+  // &--link {
+  //   font-weight: bold;
+  //   @include button-base(
+  //     var(--clr-link),
+  //     var(--clr-link-fg),
+  //     var(--clr-link-hov-bg),
+  //     null
+  //   );
+  // }
+
+  &--header {
+    &:not(.no-capsule) {
+      border-radius: 100vmax;
+    }
+
+    &:not(.selected) {
+      @include button-base(
+        (
+          background-color: var(--clr-header),
+          color: var(--clr-header-fg),
+          padding: 0.5rem 1rem,
+        ),
+        (
+          color: var(--clr-header-hov-fg),
+          background-color: var(--clr-header-hov),
+        ),
+        (),
+        $transitions
+      );
+    }
+
+    &.selected {
+      @include button-base(
+        (
+          background-color: var(--clr-highlight),
+          color: var(--clr-highlight-fg),
+
+          padding: 0.5rem 1rem,
+        ),
+        (
+          background-color: var(--clr-highlight-hov),
+        ),
+        vars.$disabled-base-map,
+        $transitions
+      );
+    }
+  }
+
+  &--context-menu {
+    &:not(.no-capsule) {
+      border-radius: 100vmax;
+    }
+    @include button-base(
+      (
+        background-color: var(--clr-header),
+        color: var(--clr-header-fg),
+        padding: 0.5rem 1rem,
+      ),
+      (
+        color: var(--clr-header-hov-fg),
+        background-color: var(--clr-header-hov),
+      ),
+      (),
+      $transitions
+    );
+  }
+
+  // &--error {
+  //   @include button-base(
+  //     rgb(212, 44, 44),
+  //     var(--clr-menu-fg),
+  //     rgb(169, 35, 35),
+  //     null
+  //   );
+  // }
+
+  // &--success {
+  //   @include button-base(green, var(--clr-menu-fg), rgb(0, 86, 0), null);
+  // }
+
+  &--capsule {
+    border-radius: 100vmax;
+  }
+}

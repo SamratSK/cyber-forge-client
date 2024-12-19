@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./assets/fonts/Geist/Geist";
+@use "./assets/styles/imports";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+
+  font-family: 'Geist', sans-serif;
+  letter-spacing: 0.25px;
+}
+
+body {
+  display: flex;
+}

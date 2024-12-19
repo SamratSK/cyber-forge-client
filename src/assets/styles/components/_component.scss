@@ -1,0 +1,10 @@
+.component {
+  &,
+  &:has(:only-child) > .container{
+    display: flex;
+  }
+  
+  &:has(:only-child) > .container{
+    flex: 1;
+  }
+}

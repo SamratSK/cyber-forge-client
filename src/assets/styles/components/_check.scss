@@ -1,0 +1,103 @@
+@use "../vars" as vars;
+
+$chk-size: 1.05em;
+
+label.check,
+label.radio {
+
+  $clr-bg: var(--clr-input);
+  $clr-fg: var(--clr-input-fg);
+
+  display: grid;
+  grid-template-columns: $chk-size auto;
+
+  place-items: center;
+  gap: 0.35rem;
+
+  cursor: pointer;
+
+  &:has(input[type="checkbox"]:disabled),
+  &:has(input[type="radio"]:disabled) {
+    cursor: not-allowed;
+  }
+
+  & > input[type="checkbox"],
+  & > input[type="radio"] {
+    appearance: none;
+    margin: 0;
+
+    cursor: pointer;
+
+    color: $clr-fg;
+    background-color: $clr-bg;
+
+    width: $chk-size;
+    height: $chk-size;
+    border: var(--input-bdr);
+
+    transform: translateY(-0.03em);
+
+    display: grid;
+    place-content: center;
+
+    transition: border-color vars.$durDefault;
+    font: inherit;
+
+    &:disabled {
+      @include vars.disabled-base;
+    }
+
+    &:focus,
+    &:focus-visible {
+      border-color: var(--clr-focus-bdr);
+    }
+  }
+
+  & > input[type="checkbox"] {
+    border-radius: vars.$borderRadDefault;
+  }
+
+  & > input[type="radio"] {
+    border-radius: 50%;
+  }
+
+  & > input[type="checkbox"]::before, 
+  & > input[type="radio"]::before {
+    content: "";
+    display: none;
+    background-color: $clr-fg;
+  }
+
+  & > input[type="checkbox"]:checked::before, 
+  & > input[type="radio"]:checked::before {
+    display: block;
+  }
+}
+
+label.check {
+  $check-size: $chk-size * 0.8;
+
+  & > input[type="checkbox"]::before {
+    width: $check-size;
+    height: $check-size;
+    clip-path: polygon(
+      87.5% 29.331%,
+      36.365% 80.471%,
+      12.5% 56.605%,
+      22.726% 46.374%,
+      36.79% 60.438%,
+      77.698% 19.529%,
+      87.5% 29.331%
+    );
+  }
+}
+
+label.radio {
+  $radio-size: $chk-size * 0.575;
+
+  & > input[type="radio"]::before {
+    width: $radio-size;
+    height: $radio-size;
+    clip-path: circle(50% at 50% 50%);
+  }
+}

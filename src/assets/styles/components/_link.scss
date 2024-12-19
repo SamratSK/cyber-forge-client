@@ -1,0 +1,15 @@
+@use "../vars" as vars;
+
+a.link,
+button.link,
+input[type="submit"].link {
+  background-color: transparent;
+  color: currentColor;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  &:disabled {
+    @include vars.disabled-base;
+  }
+}
