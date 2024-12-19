@@ -1,0 +1,56 @@
+<form class="card flx flx--v" [formGroup]="signUpForm" (ngSubmit)="submit()">
+  <h1>Sign up</h1>
+  <div class="form-group flx flx--v">
+    <label for="name">Name</label>
+    <input
+      id="name"
+      type="text"
+      formControlName="name"
+      placeholder="Enter your name"
+      class="input"
+    />
+
+    <div class="error">
+      @if(signUpForm.get('name')?.touched && signUpForm.get('name')?.invalid)
+      {Name is required.}
+    </div>
+  </div>
+
+  <div class="form-group flx flx--v">
+    <label for="email">Email</label>
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      placeholder="Enter your email"
+      class="input"
+    />
+    <div class="error">
+      @if(signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid)
+      { @if(signUpForm.get('email')?.errors?.['required']) { Email is required }
+      @else if (signUpForm.get('email')?.errors?.['email']) { Invalid email
+      address. } }
+    </div>
+  </div>
+
+  <div class="form-group flx flx--v">
+    <label for="password">Password</label>
+    <input
+      id="password"
+      type="text"
+      formControlName="password"
+      placeholder="Enter your password"
+      class="input"
+    />
+    <div class="error">
+      @if(signUpForm.get('password')?.touched &&
+      signUpForm.get('password')?.invalid &&
+      signUpForm.get('password')?.errors?.['required']) { Password is required.
+      }
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="signUpForm.invalid" class="btn">
+    Sign Up
+  </button>
+</form>

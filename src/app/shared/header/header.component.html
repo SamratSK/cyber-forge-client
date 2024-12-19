@@ -1,0 +1,61 @@
+<nav class="container flx--ac">
+  <div class="flx flx--ac header-container">
+    <button
+      class="btn btn--hamburger btn--header flx flx--c"
+      (click)="openMenu()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <a class="link header" href="/"
+      ><span>Relief</span><span>Nest</span></a
+    >
+  </div>
+  <div class="flx--1"></div>
+  <div class="links-container flx flx--ac">
+    <button
+      class="btn btn--close btn--header flx flx--c"
+      (click)="mobileOpened = false"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="close"
+      >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    @if(!authDone) {
+
+    <div class="links flx flx--ac">
+      <button
+        class="btn btn--header"
+        routerLink="/auth/signin"
+        routerLinkActive="selected"
+      >
+        Sign in
+      </button>
+    </div>
+    }
+  </div>
+  @if(authDone) {
+  <ng-profile-icon></ng-profile-icon>
+  }
+</nav>

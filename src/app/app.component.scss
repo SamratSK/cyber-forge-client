@@ -1,0 +1,18 @@
+:host {
+  flex-direction: column;
+}
+
+.container {
+  padding: 1rem;
+  gap: 1rem;
+
+  > * {
+    width: max-content;
+  }
+}
+
+.app-header,
+.app-footer {
+  // box-shadow: 0 0 1rem 0rem var(--clr-card-shadow);
+  z-index: 1;
+}

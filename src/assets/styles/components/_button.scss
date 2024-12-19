@@ -51,6 +51,7 @@
   $transitions: (
     color: vars.$durDefault ease,
     background-color: vars.$durDefault,
+    scale: vars.$durDefault
   );
 
   @include button-base(
@@ -90,6 +91,41 @@
         (
           color: var(--clr-header-hov-fg),
           background-color: var(--clr-header-hov),
+        ),
+        (),
+        $transitions
+      );
+    }
+
+    &.selected {
+      @include button-base(
+        (
+          background-color: var(--clr-highlight),
+          color: var(--clr-highlight-fg),
+
+          padding: 0.5rem 1rem,
+        ),
+        (
+          background-color: var(--clr-highlight-hov),
+        ),
+        vars.$disabled-base-map,
+        $transitions
+      );
+    }
+  }
+
+  &--circular {
+
+    &:not(.selected) {
+      @include button-base(
+        (
+          background-color: var(--clr-bg),
+          color: var(--clr-fg),
+          border-radius: 50%,
+        ),
+        (
+          color: var(--clr-hov-fg),
+          background-color: var(--clr-hov),
         ),
         (),
         $transitions

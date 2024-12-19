@@ -1,0 +1,75 @@
+@use "../header-vars" as vars;
+@use "sass:math";
+
+:host {
+  height: 100%;
+  position: relative;
+}
+
+.btn--header {
+  --clr-outer-bdr: var(--clr-highlight);
+
+  border-radius: 0 !important;
+  padding: 0.35rem 0.55rem 0.35rem 0.65rem;
+  gap: 0.35rem;
+  
+  img {
+    width: Calc(0.9 * var(--p-height));
+    aspect-ratio: 1;
+
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+
+    cursor: pointer;
+  }
+
+  .caret {
+    height: 0.75rem;
+    width: 0.75rem;
+  }
+}
+
+.context-menu {
+  $shadow-sz: 0.5rem;
+
+  position: absolute;
+  right: 0;
+  top: Calc(100%);
+
+  min-width: 10rem;
+  width: max-content;
+  max-width: 20rem;
+
+  height: max-content;
+  padding: 0.5rem;
+  gap: 0.25rem;
+
+  background-color: vars.$headerBg;
+
+  border: 0.09rem solid rgba(0, 0, 0, 0.1);
+  border-radius: vars.$profile-context-border-radius;
+
+  transform-origin: top right;
+
+  // box-shadow: 0 0 $shadow-sz 0px #000;
+  // clip-path: inset(0 #{-$shadow-sz} #{-$shadow-sz} #{-$shadow-sz});
+
+  button {
+    $icon-sz: 1.2rem;
+    $icon-sz: 1.2rem;
+
+    text-align: left;
+    gap: 0.7rem;
+
+    .icon {
+      width: 1.2rem;
+      aspect-ratio: 1;
+      opacity: 0.8;
+    }
+
+    &:has(svg.icon) {
+      padding-left: 0.5rem;
+    }
+  }
+}

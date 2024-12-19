@@ -1,0 +1,101 @@
+@use "./header-vars" as headerVars;
+@use "../../../assets/styles/vars" as vars;
+@use "../../../assets/styles/mixins/media" as media;
+@use "sass:math";
+
+:host {
+  background-color: headerVars.$headerBg;
+  height: headerVars.$headerHeight;
+
+  border-bottom: 0.18rem solid var(--clr-highlight);
+}
+
+.header {
+  font-weight: 500;
+  font-size: 140%;
+
+  color: var(--clr-heading) !important;
+}
+
+.links {
+  gap: 0.5rem;
+  height: 100%;
+}
+
+// .btn--close,
+// .btn--hamburger {
+//   padding: 0.5rem;
+//   aspect-ratio: 1;
+//   justify-content: space-around;
+
+//   display: none;
+
+//   margin-right: 0.75rem;
+
+//   height: math.div(headerVars.$headerHeight, 1.75);
+
+//   svg {
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
+
+// ng-profile-icon {
+//   padding-left: 0.5rem;
+// }
+
+// :host.mobile-opened {
+//   .links-container {
+//     display: flex;
+//     flex-direction: column;
+//     position: fixed;
+//     z-index: vars.$z-sidemenu;
+
+//     width: min(20rem, 90vw);
+//     padding: 0.5rem;
+
+//     top: 0;
+//     left: 0;
+//     bottom: 0;
+
+//     background-color: headerVars.$headerBg;
+
+//     .btn--close,
+//     .btn--hamburger {
+//       display: flex;
+//     }
+
+//     .btn--close {
+//       display: flex;
+//       align-self: flex-end;
+//       margin: 0;
+//     }
+
+//     .links {
+//       width: 100%;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: normal;
+
+//       > button {
+//         border-radius: vars.$borderRadDefault;
+
+//         $icon-sz: 1.2rem;
+//         $icon-sz: 1.2rem;
+
+//         text-align: left;
+//         gap: 0.7rem;
+
+//         .icon {
+//           width: 1.2rem;
+//           aspect-ratio: 1;
+//           opacity: 0.8;
+//         }
+
+//         &:has(svg.icon) {
+//           padding-left: 0.5rem;
+//         }
+//       }
+//     }
+//   }
+// }

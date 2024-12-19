@@ -1,0 +1,13 @@
+@use "../../../assets/styles/vars" as vars;
+
+:host {
+  display: contents;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: vars.$z-backdrop;
+
+  background-color: rgba(0, 0, 0, 0.4);
+}
