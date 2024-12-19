@@ -6,14 +6,14 @@ interface Shelter {
   name: string;
   latitude: number;
   longitude: number;
-  capacity: string;
+  distance: string;
 }
 
 interface Hospital {
   name: string;
   latitude: number;
   longitude: number;
-  capacity: string;
+  distance: string;
 }
 
 interface FirstAidKitResponse {
@@ -63,6 +63,12 @@ interface CityScore {
   };
 }
 
+
+interface VideoTranscriptionResponse {
+  summary: string;
+  translated_summary: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -75,13 +81,13 @@ export class DataService {
       name: 'Shelter A',
       latitude: 12.9716,
       longitude: 77.5946,
-      capacity: '100',
+      distance: '100',
     },
     {
       name: 'Shelter B',
       latitude: 12.9726,
       longitude: 77.5956,
-      capacity: '150',
+      distance: '150',
     },
   ];
   public firstAidKit: FirstAidKitResponse | null = {
@@ -94,13 +100,13 @@ export class DataService {
       name: 'Hospital A',
       latitude: 12.9716,
       longitude: 77.5946,
-      capacity: '50',
+      distance: '50',
     },
     {
       name: 'Hospital B',
       latitude: 12.9726,
       longitude: 77.5956,
-      capacity: '100',
+      distance: '100',
     },
   ];
   public updates: Update[] = [
@@ -264,6 +270,18 @@ export class DataService {
     } catch (error) {
       console.error('Error fetching city score:', error);
       this.cityScore = null;
+    }
+  }
+
+  async transcribeVideo(lang: string, url: string): Promise<VideoTranscriptionResponse | null> {
+    try {
+      const response = await lastValueFrom(
+        this.http.post<VideoTranscriptionResponse>(`${this.BASE_URL}/video`, { lang, url })
+      );
+      return response || null;
+    } catch (error) {
+      console.error('Error transcribing video:', error);
+      return null;
     }
   }
 

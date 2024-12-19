@@ -104,6 +104,15 @@ export class HeroComponent implements AfterViewInit {
     setTimeout(() => {
       this.map?.invalidateSize();
       this.score = this.dataService.cityScore;
+      if (this.score) {
+        for (let i = 0; i < this.score.facilities_list.length; i++) {
+          const f = this.score.facilities_list[i];
+
+          if (!isNaN(f.lat) && !isNaN(f.lon))
+            this.layers.push(L.marker([f.lat, f.lon]).bindPopup(`${f.name}`));
+        }
+      }
+
       // this.weakFacilities =
       //   this.score?.weakest_sector.facilities.splice(0, 4).join(', ') || 'NA';
     }, 0);

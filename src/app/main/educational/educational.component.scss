@@ -1,7 +1,39 @@
 :host {
+  flex: 1;
+  height: 100%;
   display: flex;
+
+  gap: 1rem;
+}
+
+.left {
+  width: 30%;
+  border-radius: 0.5rem;
+  background-color: rgb(233, 233, 233);
+
+  gap: 0.2rem;
+  padding: 0.5rem;
+
+  > button {
+    width: 100%;
+
+    &.selected {
+      background-color: lightgray;
+    }
+  }
 }
 
 iframe {
-  
+  margin-bottom: 1rem;
+}
+
+.right {
+  h6 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  p {
+    margin: 0;
+  }
 }

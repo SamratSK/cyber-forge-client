@@ -119,7 +119,7 @@
 
 @if(score) {
 
-<!-- <div class="cont3 flx flx--v">
+<div class="cont3 flx flx--v">
   <div class="container flx flx--1">
     <div
       class="map flx--1"
@@ -130,22 +130,26 @@
     ></div>
     <div class="right flx--1 flx flx--v">
       <h2>{{ score.city }}</h2>
-      <p class="score">City Score: {{ score.city_score }}</p>
+      <p class="score">City Score: {{ score.total_score }}</p>
 
       <p class="desc">
-        Your city has {{ score.facilities_count }} facilities including police
-        stations, hospitals and fire stations.
+        Your city has
+        {{
+          score.facilities.hospitals +
+            score.facilities.fire_stations +
+            score.facilities.police_station
+        }}
+        facilities including {{score.facilities.police_station}} police stations, {{score.facilities.hospitals}} hospitals and {{score.facilities.fire_stations}} fire stations.
       </p>
 
       <p class="weakest">
         The area with weakest coverage is
         {{ score.weakest_sector.weakest_sector_name }} with
-        {{ score.weakest_sector.facility_count }} facilities which include:
-        {{ weakFacilities }}.
+        {{ score.weakest_sector.facility_count }} facilities.
       </p>
     </div>
   </div>
-</div> -->
+</div>
 }
 
 <div class="cont4 flx flx--v">

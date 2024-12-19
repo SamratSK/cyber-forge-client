@@ -15,7 +15,7 @@ export class SheltersComponent {
     name: string;
     latitude: number;
     longitude: number;
-    capacity: string;
+    distance: string;
   }[] = [];
   map: L.Map | undefined;
   options = {
@@ -46,7 +46,7 @@ export class SheltersComponent {
       if (!isNaN(shelter.latitude) && !isNaN(shelter.longitude))
         this.layers.push(
           L.marker([shelter.latitude, shelter.longitude]).bindPopup(
-            `${shelter.name} (Capacity: ${shelter.capacity})`
+            `${shelter.name} (Distance: ${shelter.distance}km)`
           )
         );
     }

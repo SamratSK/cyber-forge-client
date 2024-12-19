@@ -1,2 +1,28 @@
-<div class="left"></div>
-<div class="right flx flx--v flx--1"></div>
+<div class="left">
+  @for (item of links; track $index) {
+  <button
+    class="btn--context-menu no-capsule flx flx--ac"
+    [class.selected]="selectedIndex === $index"
+    (click)="clicked($index)"
+  >
+    {{ item.name }}
+  </button>
+  }
+</div>
+<div class="right flx flx--v flx--1">
+  <iframe
+    class="flx--1"
+    [src]="
+      dom.bypassSecurityTrustResourceUrl(
+        selectedIndex >= 0 ? links[selectedIndex].link : 'about:blank'
+      )
+    "
+  ></iframe>
+  <div>
+    <h6>Summary:</h6>
+    <p>{{summary}}</p>
+
+    <h6>Translated:</h6>
+    <p>{{transsummary}}</p>
+  </div>
+</div>
